@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+
+
+header {
+    height: 15vh;
+    background-color: #009688;
+}
+
+main {
+    background-color: #DBDBD3;
+    height: 85vh;  
+}
+.container {
+    height: 100%;
+    position: relative;
+    top: -10%;
+}

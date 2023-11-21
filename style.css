@@ -3,7 +3,9 @@ header {
     height: 15vh;
     background-color: #009688;
 }
-
+.bold {
+    font-weight: bold;
+}
 main {
     background-color: #DBDBD3;
     height: 85vh;  
@@ -17,6 +19,10 @@ main {
     background-color: #EAEAEA;
     height: 10%;
 }
+
+.contact {
+    border-bottom: 1px solid lightgray;
+}
 .profile-pic {
     width: 2rem;
     border-radius: 50%;
@@ -28,24 +34,32 @@ main {
     background-color: #EAEAEA;
     border-left:  1px solid lightgray;
 }
+#contacts-row {
+    flex-direction: column;
+    height: 70%;
+}
+
+#notifications-row,
+#searchbar-row {
+    height: 10%;
+}
 
 #contacts-row,
 #chat-window {
     overflow: auto;
+    flex-wrap: nowrap;
 }
-#chat-window {
-    height: 80%;
-}
+
 .date,.icons {
     margin-left: auto;
 }
-
 
 #chat-window {
     background-image: url(img/mine.jpg);
     flex-direction: column;
     padding: 3rem;
-    flex-wrap: nowrap;
+    
+    height: 80%;
    
 }
 

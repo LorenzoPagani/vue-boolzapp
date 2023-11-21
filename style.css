@@ -73,3 +73,7 @@ main {
     align-self: flex-end;
     background-color: #009688;
 }
+
+.received {
+    background-color: gray;
+}

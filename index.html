@@ -58,8 +58,8 @@
                             </div>
                             <!-- riga contatti -->
                             <div class="row p-2" id="contacts-row">
-                                <div v-for="contact in contacts"
-                                    class="col-12 d-flex align-items-center contact">
+                                <div v-for="(contact, i) in contacts"
+                                    class="col-12 d-flex align-items-center contact" @click="fillAll(i)">
                                     <img class="profile-pic"
                                         :src="contact.avatar" alt>
                                     <div class="name-col ">
@@ -74,30 +74,16 @@
                         <div id="right-column" class="col-8 h-100">
                             <!-- contatto corrente -->
                             <div class="row" id="current-contact-row">
-                                <div class="col-12 d-flex align-items-center">
-                                    <img class="profile-pic"
-                                        src="img/avatar_1.jpg" alt>
-                                    <div class="name-col ">
-                                        <p class="mb-0">Michele</p>
-                                        <p class="mb-0">ultimo accesso alle
-                                            <span>12.00</span></p>
-                                    </div>
-                                    <div class="icons">icone</div>
-                                </div>
+                                
                             </div>
                             <!-- finestra chat -->
                             <div class="row " id="chat-window">
-                                <div class= "col-5 mb-3 bg-secondary">
-                                    messaggio ricevuto
-                                </div>
-                                <div class="col-5 mb-3 sent">
-                                    messaggio inviato
-                                </div>
+                               <h2>Seleziona un contatto per chattare</h2>
                             </div>
                             <!-- riga input messaggio -->
                             <div class="row " id="message-box-row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text"
+                                    <input id="messageInput" @keyup.enter="newMessage" class="form-control" type="text"
                                         placeholder="Scrivi un messaggio">
                                 </div>
                             </div>

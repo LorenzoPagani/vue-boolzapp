@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
   data () {
     return {
-    currentContact: 0,
+      currentContact: 0,
       contacts: [
         {
           name: 'Michele',
@@ -170,34 +170,37 @@ createApp({
     }
   },
   methods: {
+    getCurrentChat (i) {
+      this.currentContact = i
+    },
     autoReply (index) {
-        newObject = {
-            message: "ok",
-            date: "un secondo fa",
-            status: "received"
-        }
-        this.contacts[index].messages.push(newObject)
-        this.fillAll(index)
-        
+      newObject = {
+        message: 'ok',
+        date: 'un secondo fa',
+        status: 'received'
+      }
+      this.contacts[index].messages.push(newObject)
+      this.getCurrentChat(index)
     },
     newMessage () {
-        message = document.getElementById("messageInput").value
-        if (!message) {
-            return
-        }
+      message = document.getElementById('messageInput').value
+      if (!message) {
+        return
+      } else {
         newObject = {
-            message: message,
-            date: "un secondo fa",
-            status: "sent"
+          message: message,
+          date: 'un secondo fa',
+          status: 'sent'
         }
         this.contacts[this.currentContact].messages.push(newObject)
-        this.fillAll(this.currentContact)
-        document.getElementById("messageInput").value = ""
+        this.getCurrentChat(this.currentContact)
+        document.getElementById('messageInput').value = ''
         setTimeout(() => {
-            this.autoReply(this.currentContact)
-        }, 1000);
-    },
-    fillAll (i) {
+          this.autoReply(this.currentContact)
+        }, 1000)
+      }
+    }
+    /*  fillAll (i) {
         contact = this.contacts[i]
         this.fillChat(contact)
         this.currentContact = i
@@ -220,6 +223,7 @@ createApp({
           'chat-window'
         ).innerHTML += `<div class= "col-5 mb-3  ${element.status}"> ${element.message} </div>`
       })
-    }
-  }
+    } */
+  },
+  mounted () {}
 }).mount('#app')

@@ -59,12 +59,14 @@
                             <!-- riga contatti -->
                             <div class="row p-2" id="contacts-row">
                                 <div v-for="(contact, i) in contacts"
-                                    class="col-12 d-flex align-items-center contact" @click="fillAll(i)">
+                                    class="col-12 d-flex align-items-center contact"
+                                    @click="getCurrentChat(i)">
                                     <img class="profile-pic"
                                         :src="contact.avatar" alt>
                                     <div class="name-col ">
                                         <p class="mb-0 bold">{{contact.name}}</p>
-                                        <p class="mb-0 text-muted">{{contact.messages[contact.messages.length - 1].message}}</p>
+                                        <p class="mb-0 text-muted">{{contact.messages[contact.messages.length
+                                            - 1].message}}</p>
                                     </div>
                                     <div class="date">12.00</div>
                                 </div>
@@ -74,16 +76,31 @@
                         <div id="right-column" class="col-8 h-100">
                             <!-- contatto corrente -->
                             <div class="row" id="current-contact-row">
-                                
+                                <div class="col-12 d-flex align-items-center">
+                                    <img class="profile-pic"
+                                        :src="contacts[currentContact].avatar"
+                                        alt>
+                                    <div class="name-col ">
+                                        <p class="mb-0">{{contacts[currentContact].name}}</p>
+                                        <p class="mb-0">ultimo accesso alle
+                                            <span>12.00</span></p>
+                                    </div>
+                                    <div class="icons">icone</div>
+                                </div>
                             </div>
                             <!-- finestra chat -->
                             <div class="row " id="chat-window">
-                               <h2>Seleziona un contatto per chattare</h2>
+                                <div
+                                    v-for="message in contacts[currentContact].messages"
+                                    :class="message.status" class="col-5 mb-3">{{message.message}}
+                                </div>
                             </div>
                             <!-- riga input messaggio -->
                             <div class="row " id="message-box-row">
                                 <div class="col-12">
-                                    <input id="messageInput" @keyup.enter="newMessage" class="form-control" type="text"
+                                    <input id="messageInput"
+                                        @keyup.enter="newMessage"
+                                        class="form-control" type="text"
                                         placeholder="Scrivi un messaggio">
                                 </div>
                             </div>

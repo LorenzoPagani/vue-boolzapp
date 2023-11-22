@@ -3,6 +3,9 @@ header {
     height: 15vh;
     background-color: #009688;
 }
+p {
+    font-size: smaller;
+}
 .bold {
     font-weight: bold;
 }
@@ -36,12 +39,23 @@ main {
 }
 #contacts-row {
     flex-direction: column;
-    height: 70%;
+    height: 72%;
+    cursor: pointer;
+}
+#notifications-row {
+    background-color: #8EDAFC;
+    height: 10%;
 }
 
-#notifications-row,
+.toggle-notifications {
+    background-color: white;
+    color: #8EDAFC; 
+    padding: 10px;
+    border-radius: 50%;
+}
 #searchbar-row {
-    height: 10%;
+    padding: 5px 0;
+    height: 8%;
 }
 
 #contacts-row,

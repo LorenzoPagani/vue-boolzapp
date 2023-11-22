@@ -3,7 +3,10 @@ const { createApp } = Vue
 createApp({
   data () {
     return {
+      userInput: '',
+      filteredArray: '',
       currentContact: 0,
+      chatOpened: false,
       contacts: [
         {
           name: 'Michele',
@@ -170,8 +173,15 @@ createApp({
     }
   },
   methods: {
+    filterArray () {
+      const filteredArray = this.contacts.filter(obj =>
+        obj.name.toLowerCase().includes(this.userInput.toLowerCase())
+      )
+      this.filteredArray = filteredArray
+    },
     getCurrentChat (i) {
       this.currentContact = i
+      this.chatOpened = true
     },
     autoReply (index) {
       newObject = {
@@ -200,30 +210,6 @@ createApp({
         }, 1000)
       }
     }
-    /*  fillAll (i) {
-        contact = this.contacts[i]
-        this.fillChat(contact)
-        this.currentContact = i
-    }, 
-    fillChat (contact) {
-      document.getElementById('chat-window').innerHTML = ''
-      document.getElementById("current-contact-row").innerHTML = 
-      `<div class="col-12 d-flex align-items-center">
-            <img class="profile-pic"
-            src="${contact.avatar}" alt>
-            <div class="name-col ">
-                <p class="mb-0">${contact.name}</p>
-                <p class="mb-0">ultimo accesso alle
-                <span>12.00</span></p>
-            </div>
-            <div class="icons">icone</div>
-        </div>`
-      contact.messages.forEach(element => {
-        document.getElementById(
-          'chat-window'
-        ).innerHTML += `<div class= "col-5 mb-3  ${element.status}"> ${element.message} </div>`
-      })
-    } */
   },
   mounted () {}
 }).mount('#app')

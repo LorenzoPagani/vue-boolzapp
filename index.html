@@ -64,7 +64,7 @@
                                         :src="contact.avatar" alt>
                                     <div class="name-col ">
                                         <p class="mb-0 bold">{{contact.name}}</p>
-                                        <p class="mb-0 text-muted">{{contact.messages[1].message}}</p>
+                                        <p class="mb-0 text-muted">{{contact.messages[contact.messages.length - 1].message}}</p>
                                     </div>
                                     <div class="date">12.00</div>
                                 </div>

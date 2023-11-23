@@ -1,23 +1,27 @@
-
 header {
     height: 15vh;
     background-color: #009688;
 }
+
 p {
     font-size: smaller;
 }
+
 .bold {
     font-weight: bold;
 }
+
 main {
     background-color: #DBDBD3;
-    height: 85vh;  
+    height: 85vh;
 }
+
 .container {
     height: 100%;
     position: relative;
     top: -12%;
 }
+
 #profile-row {
     background-color: #EAEAEA;
     height: 10%;
@@ -26,6 +30,7 @@ main {
 .contact {
     border-bottom: 1px solid lightgray;
 }
+
 .profile-pic {
     width: 2rem;
     border-radius: 50%;
@@ -35,13 +40,15 @@ main {
 #current-contact-row {
     height: 10%;
     background-color: #EAEAEA;
-    border-left:  1px solid lightgray;
+    border-left: 1px solid lightgray;
 }
+
 #contacts-row {
     flex-direction: column;
     height: 72%;
     cursor: pointer;
 }
+
 #notifications-row {
     background-color: #8EDAFC;
     height: 10%;
@@ -49,10 +56,11 @@ main {
 
 .toggle-notifications {
     background-color: white;
-    color: #8EDAFC; 
+    color: #8EDAFC;
     padding: 10px;
     border-radius: 50%;
 }
+
 #searchbar-row {
     padding: 5px 0;
     height: 8%;
@@ -64,18 +72,42 @@ main {
     flex-wrap: nowrap;
 }
 
-.date,.icons {
+.date,
+.icons {
     margin-left: auto;
+}
+
+.date {
+    font-size: xx-small;
 }
 
 #chat-window {
     background-image: url(img/mine.jpg);
     flex-direction: column;
     padding: 3rem;
-    
+
     height: 80%;
-   
+
 }
+
+.dropdown {
+    background-color: white;
+    position: absolute;
+    left: 40%;
+    top: 54%;
+    z-index: 2;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.arrow {
+    font-size: medium;
+    display: block;
+    margin-bottom: 5px;
+}
+
 
 #message-box-row {
     height: 10%;
@@ -96,12 +128,15 @@ main {
     border-radius: 10px;
 }
 
-.message-time {
+.sent:hover .message-arrow,
+.received:hover .message-arrow {
+    display: block;
+}
+
+.message-arrow {
     margin-left: auto;
     align-self: flex-end;
     font-size: xx-small;
     color: gray;
-    margin-top: auto;
-
-
+    display: none;
 }

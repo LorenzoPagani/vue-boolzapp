@@ -1,6 +1,6 @@
 const { createApp } = Vue
 
-createApp({
+vue = createApp({
   data () {
     return {
       userInput: '',
@@ -173,6 +173,10 @@ createApp({
     }
   },
   methods: {
+    showDropDown (i) {
+      const currentDrop = document.getElementById(`dropdown-${i}`)
+      currentDrop.classList.toggle('d-none')
+    },
     filterArray () {
       const filteredArray = this.contacts.filter(obj =>
         obj.name.toLowerCase().includes(this.userInput.toLowerCase())
@@ -204,11 +208,17 @@ createApp({
         }
         this.contacts[this.currentContact].messages.push(newObject)
         this.getCurrentChat(this.currentContact)
+        let x = this.currentContact
         document.getElementById('messageInput').value = ''
         setTimeout(() => {
-          this.autoReply(this.currentContact)
+          this.autoReply(x)
         }, 1000)
       }
+    },
+    deleteMessage (index) {
+      const currentMessages = this.contacts[this.currentContact].messages
+      currentMessages.splice(index, 1)
+      console.log('deleted message', index)
     }
   },
   mounted () {}
